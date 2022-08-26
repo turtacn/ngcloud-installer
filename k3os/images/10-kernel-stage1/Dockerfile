@@ -3,11 +3,15 @@ ARG TAG
 FROM ubuntu:focal
 
 
-RUN echo 'Acquire::http { Proxy "http://192.168.198.1:19666"; };' >> /etc/apt/apt.conf.d/01proxy
-ENV HTTP_PROXY http://192.168.198.1:19666
-ENV http_proxy http://192.168.198.1:19666
-ENV HTTPS_PROXY http://192.168.198.1:19666
-ENV https_proxy http://192.168.198.1:19666
+ARG http_proxy=$http_proxy
+ARG https_proxy=$https_proxy
+ARG no_proxy=$no_proxy
+ENV http_proxy $http_proxy
+ENV https_proxy $https_proxy
+ENV no_proxy $no_proxy
+ENV HTTP_PROXY $http_proxy
+ENV HTTPS_PROXY $https_proxy
+RUN echo 'Acquire::http { Proxy "$HTTP_PROXY"; };' >> /etc/apt/apt.conf.d/01proxy
 
 RUN apt-get --assume-yes update \
  && apt-get --assume-yes install \

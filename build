@@ -12,7 +12,7 @@ if [ -z "$p" ]
 then
       echo "proxy is empty"
       find . -type f -exec sed -i '/aliyun/d' {} \;
-      find . -type f -exec sed -i '/git    config/d' {} \;
+      find . ! -name "build" -type f -exec sed -i '/git    config/d' {} \;
 else
       echo "proxy is NOT empty"
 fi

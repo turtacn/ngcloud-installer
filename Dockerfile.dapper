@@ -6,6 +6,17 @@ ENV ARCH $DAPPER_HOST_ARCH
 ## alpine source: turta
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 RUN apk -U add bash git gcc musl-dev docker vim less file curl wget ca-certificates zstd
+
+
+ARG http_proxy=$http_proxy
+ARG https_proxy=$https_proxy
+ARG no_proxy=$no_proxy
+ENV http_proxy $http_proxy
+ENV https_proxy $https_proxy
+ENV no_proxy $no_proxy
+ENV HTTP_PROXY $http_proxy
+ENV HTTPS_PROXY $https_proxy
+
 RUN go get -d golang.org/x/lint/golint && \
     git -C /go/src/golang.org/x/lint/golint checkout -b current 06c8688daad7faa9da5a0c2f163a3d14aac986ca && \
     go install golang.org/x/lint/golint && \

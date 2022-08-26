@@ -1,0 +1,11 @@
+#!/bin/bash
+set -e
+
+p1=http://192.168.198.1:19666
+p2=http://192.168.198.1:7890
+
+export http_proxy=
+export https_proxy=
+export HTTP_PROXY=
+export HTTPS_PROXY=
+make

@@ -4,10 +4,12 @@ set -e
 p1=http://192.168.198.1:19666
 p2=http://192.168.198.1:7890
 
-export http_proxy=$p1
-export https_proxy=$p1
-export HTTP_PROXY=$p1
-export HTTPS_PROXY=$p1
+p=$p1
+
+export http_proxy=$p
+export https_proxy=$p
+export HTTP_PROXY=$p
+export HTTPS_PROXY=$p
 make
 
 

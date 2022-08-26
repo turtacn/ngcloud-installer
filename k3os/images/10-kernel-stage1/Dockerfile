@@ -2,8 +2,8 @@ ARG REPO
 ARG TAG
 FROM ubuntu:focal
 
-RUN apt-get --assume-yes update \
- && apt-get --assume-yes install \
+RUN apt-get --assume-yes -o Acquire::http::Proxy "htttp://192.168.198.1:7890" update \
+ && apt-get --assume-yes -o Acquire::http::Proxy "htttp://192.168.198.1:7890" install \
     curl \
     initramfs-tools \
     kmod \

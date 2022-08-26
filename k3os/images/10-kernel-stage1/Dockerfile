@@ -11,7 +11,8 @@ ENV https_proxy $https_proxy
 ENV no_proxy $no_proxy
 ENV HTTP_PROXY $http_proxy
 ENV HTTPS_PROXY $https_proxy
-RUN echo 'Acquire::http { Proxy "$HTTP_PROXY"; };' >> /etc/apt/apt.conf.d/01proxy
+RUN env | grep -i proxy
+RUN echo 'Acquire::http { Proxy "$HTTP_PROXY"; };' >> /etc/apt/apt.conf.d/01proxy && cat /etc/apt/apt.conf.d/01proxy
 
 RUN apt-get --assume-yes update \
  && apt-get --assume-yes install \

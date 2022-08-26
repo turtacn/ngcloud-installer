@@ -14,8 +14,8 @@ ENV HTTPS_PROXY $https_proxy
 RUN env | grep -i proxy
 RUN echo 'Acquire::http { Proxy "$HTTP_PROXY"; };' >> /etc/apt/apt.conf.d/01proxy && cat /etc/apt/apt.conf.d/01proxy
 
-RUN apt-get --assume-yes update \
- && apt-get --assume-yes install \
+RUN apt-get --assume-yes -o Acquire::http::proxy="$http_proxy" -o Acquire::https::proxy="$https_proxy" update
+RUN apt-get --assume-yes -o Acquire::http::proxy="$http_proxy" -o Acquire::https::proxy="$https_proxy" install \
     curl \
     initramfs-tools \
     kmod \

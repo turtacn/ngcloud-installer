@@ -6,6 +6,15 @@ p2=http://192.168.198.1:7890
 
 p=$p1
 
+
+if [ -z "$p" ]
+then
+      echo "proxy is empty"
+      find . -type f -exec sed -i '/aliyun/d' {} \;
+else
+      echo "proxy is NOT empty"
+fi
+
 export http_proxy=$p
 export https_proxy=$p
 export HTTP_PROXY=$p

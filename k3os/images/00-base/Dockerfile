@@ -1,6 +1,10 @@
 ### BASE ###
 FROM alpine:3.12 as base
+
 ARG ARCH
+## alpine source: turta
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+
 RUN apk --no-cache add \
     bash \
     bash-completion \

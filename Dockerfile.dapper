@@ -19,9 +19,10 @@ ENV HTTPS_PROXY $https_proxy
 
 RUN env | grep -i proxy
 
-#RUN git config --global http.sslVerify false
+RUN git config --global http.sslVerify false
 RUN git config --global http.proxy   $http_proxy
 RUN git config --global https.proxy  $https_proxy
+RUN git config --add core.compression -1
 RUN go get -d golang.org/x/lint/golint
 RUN git -C /go/src/golang.org/x/lint/golint checkout -b current 06c8688daad7faa9da5a0c2f163a3d14aac986ca
 RUN go install golang.org/x/lint/golint && \

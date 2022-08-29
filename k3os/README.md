@@ -1,22 +1,15 @@
-# k3OS
+# k8OS
 k3OS is a Linux distribution designed to remove as much OS maintenance
 as possible in a Kubernetes cluster.  It is specifically designed to only
-have what is needed to run [k3s](https://github.com/rancher/k3s). Additionally
+have what is needed to run k8s. Additionally
 the OS is designed to be managed by kubectl once a cluster is bootstrapped.
 Nodes only need to join a cluster and then all aspects of the OS can be managed
 from Kubernetes. Both k3OS and k3s upgrades are handled by the k3OS operator.
 
-1. [Quick Start](#quick-start)
-1. [Design](#design)
-1. [Installation](#installation)
-1. [Configuration](#configuration)
-1. [Upgrade/Maintenance](#upgrade-and-maintenance)
-1. [Building](#building)
-1. [Configuration Reference](#configuration-reference)
 
 ## Quick Start
 
-Download the ISO from the latest [release](https://github.com/rancher/k3os/releases) and run
+Download the ISO from the latest and run
 in VMware, VirtualBox, KVM, or bhyve.  The server will automatically start a single node Kubernetes cluster.
 Log in with the user `rancher` and run `kubectl`.  This is a "live install" running from the ISO media
 and changes will not persist after reboot.
@@ -95,22 +88,6 @@ solutions to booting a machine with cmdline args.  You can remaster the k3OS ISO
 use qemu/kvm, or automate input with packer. The kernel and initrd are available in the k3OS release
 artifacts, along with the ISO.
 
-The cmdline value `k3os.mode=install` or `k3os.fallback_mode=install` is required to enable automated installations.
-Below is a reference of all cmdline args used to automate installation
-
-| cmdline                 | Default | Example                                           | Description                     |
-|:------------------------|---------|---------------------------------------------------|---------------------------------|
-| k3os.mode               |         | install                                           | Boot k3OS to the installer, not an interactive session |
-| k3os.fallback_mode      |         | install                                           | If a valid K3OS_STATE partition is not found to boot from, run the installation |
-| k3os.install.silent     | false   | true                                              | Ensure no questions will be asked |
-| k3os.install.force_efi  | false   | true                                              | Force EFI installation even when EFI is not detected |
-| k3os.install.device     |         | /dev/vda                                          | Device to partition and format (/dev/sda, /dev/vda) |
-| k3os.install.config_url |         | [https://gist.github.com/.../dweomer.yaml](https://gist.github.com/dweomer/8750d56fb21a3fbc8d888609d6e74296#file-dweomer-yaml) | The URL of the config to be installed at `/k3os/system/config.yaml` |
-| k3os.install.iso_url    |         | https://github.com/rancher/k3os/../k3os-amd64.iso | ISO to download and install from if booting from kernel/vmlinuz and not ISO. |
-| k3os.install.no_format  |         | true                                              | Do not partition and format, assume layout exists already |
-| k3os.install.tty        | auto    | ttyS0                                             | The tty device used for console |
-| k3os.install.debug      | false   | true                                              | Run installation with more logging and configure debug for installed system |
-| k3os.install.power_off  | false   | true                                              | Shutdown the machine after install instead of rebooting |
 
 #### Custom partition layout
 
@@ -119,8 +96,6 @@ partitions and file system automatically, or you can create them manually if you
 
 ### Bootstrapped Installation
 
-You can install k3OS to a block device from any modern Linux distribution.  Just download and run [install.sh](https://raw.githubusercontent.com/rancher/k3os/master/install.sh).
-This script will run the same installation as the ISO but is a bit more raw and will not prompt for configuration.
 
 ```
 Usage: ./install.sh [--force-efi] [--debug] [--tty TTY] [--poweroff] [--takeover] [--no-format] [--config https://.../config.yaml] DEVICE ISO_URL

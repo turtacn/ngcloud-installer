@@ -8,12 +8,25 @@ ARG TAG
 FROM ${REPO}/k3os-base:${TAG} as base
 ARG VERSION
 ARG ARCH
+
+ENV http_proxy ""
+ENV https_proxy ""
+ENV no_proxy ""
+ENV HTTP_PROXY ""
+ENV HTTPS_PROXY ""
+
 RUN apk add xorriso grub grub-efi mtools libvirt qemu-img
 RUN if [ "$ARCH" == "amd64" ]; then \
         apk add qemu-system-x86_64 grub-bios ovmf \
     ;elif [ "$ARCH" == "arm64" ]; then \
         apk add qemu-system-aarch64 \
     ;fi
+
+ENV http_proxy $http_proxy
+ENV https_proxy $https_proxy
+ENV no_proxy $no_proxy
+ENV HTTP_PROXY $http_proxy
+ENV HTTPS_PROXY $https_proxy
 RUN ln -s /usr/bin/qemu-system-* /usr/bin/qemu-system
 RUN qemu-img create -f qcow2 /hd.img 40G
 COPY run-kvm.sh /usr/bin/

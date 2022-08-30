@@ -18,5 +18,7 @@ ENV INSTALL_K3S_VERSION=${VERSION} \
     INSTALL_K3S_SKIP_START=true \
     INSTALL_K3S_BIN_DIR=/output
 RUN chmod +x /output/install.sh
+RUN env | grep  -i proxy  \
+    cat /output/install.sh
 RUN /output/install.sh
 RUN echo "${VERSION}" > /output/version

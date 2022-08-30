@@ -5,6 +5,14 @@ FROM ${REPO}/k3os-base:${TAG}
 ARG ARCH
 ENV ARCH ${ARCH}
 ENV VERSION v1.19.4+k3s1
+
+ENV http_proxy $http_proxy
+ENV https_proxy $https_proxy
+ENV no_proxy $no_proxy
+ENV HTTP_PROXY $HTTP_PROXY
+ENV HTTPS_PROXY $HTTPS_PROXY
+
+
 ADD https://raw.githubusercontent.com/rancher/k3s/${VERSION}/install.sh /output/install.sh
 ENV INSTALL_K3S_VERSION=${VERSION} \
     INSTALL_K3S_SKIP_START=true \

@@ -46,9 +46,9 @@ RUN mkdir -p /usr/src/root && ls /usr/src
 RUN cd /usr/src/root && \
     tar xvf /usr/src/kernel.tar.xz --exclude='.*'
 RUN cd /usr/src/root && \
-    tar --exclude='.*' xvf /usr/src/kernel-extra.tar.xz > /dev/null
+    tar xvf /usr/src/kernel-extra.tar.xz  --exclude='.*'
 RUN cd /usr/src/root && \
-    tar --exclude='.*' xvf /usr/src/kernel-headers.tar.xz > /dev/null
+    tar xvf /usr/src/kernel-headers.tar.xz  --exclude='.*'
 
 # Create initrd
 RUN mkdir /usr/src/initrd && \

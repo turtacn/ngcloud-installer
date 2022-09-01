@@ -42,11 +42,13 @@ RUN curl -fL $KERNEL_EXTRA_XZ -o /usr/src/kernel-extra.tar.xz
 RUN curl -fL $KERNEL_HEADERS_XZ -o /usr/src/kernel-headers.tar.xz
 
 ### Extract to /usr/src/root
-##RUN mkdir -p /usr/src/root && \
-##    cd /usr/src/root && \
-##    tar xvf /usr/src/kernel.tar.xz && \
-##    tar xvf /usr/src/kernel-extra.tar.xz && \
-##    tar xvf /usr/src/kernel-headers.tar.xz
+RUN mkdir -p /usr/src/root && ls /usr/src
+RUN cd /usr/src/root && \
+    tar xvf /usr/src/kernel.tar.xz
+RUN cd /usr/src/root && \
+    tar xvf /usr/src/kernel-extra.tar.xz
+RUN cd /usr/src/root && \
+    tar xvf /usr/src/kernel-headers.tar.xz
 
 # Create initrd
 RUN mkdir /usr/src/initrd && \

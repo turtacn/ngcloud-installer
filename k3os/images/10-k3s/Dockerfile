@@ -6,6 +6,10 @@ ARG ARCH
 ENV ARCH ${ARCH}
 ENV VERSION v1.19.4+k3s1
 
+ARG http_proxy=$http_proxy
+ARG https_proxy=$https_proxy
+ARG no_proxy=$no_proxy
+
 ENV http_proxy $http_proxy
 ENV https_proxy $https_proxy
 ENV no_proxy $no_proxy

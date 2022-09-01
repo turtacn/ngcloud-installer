@@ -42,7 +42,8 @@ ENV TRASH_CACHE ${DAPPER_SOURCE}/.trash-cache
 ENV HOME ${DAPPER_SOURCE}
 WORKDIR ${DAPPER_SOURCE}
 ENV GO111MODULE off
-ENV GOPROXY  "https://goproxy.cn,direct"
+ENV GOPROXY  "https://mirrors.aliyun.com/goproxy/,direct"
+#ENV GOPROXY  "https://goproxy.cn,direct"
 #ENV GOPROXY  "https://proxy.golang.com.cn,direct"
 ENTRYPOINT ["./scripts/entry"]
 CMD ["ci"]

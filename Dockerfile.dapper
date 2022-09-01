@@ -43,7 +43,8 @@ RUN mkdir /usr/tmp && \
     mv /usr/tmp/helm /usr/bin/helm
 
 ENV GO111MODULE off
-ENV GOPROXY  "https://proxy.golang.com.cn,direct"
+ENV GOPROXY  "https://goproxy.cn,direct"
+#ENV GOPROXY  "https://proxy.golang.com.cn,direct"
 ENV DAPPER_ENV REPO TAG DRONE_TAG CROSS
 ENV DAPPER_SOURCE /go/src/github.com/rancher/harvester-installer/
 ENV DAPPER_OUTPUT ./bin ./dist

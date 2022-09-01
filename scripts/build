@@ -42,7 +42,7 @@ fi
 cd k3os
 # Update vendors
 export GO111MODULE=on
-export GOPROXY="https://proxy.golang.com.cn,direct"
+export GOPROXY="https://goproxy.cn,direct"
 go mod edit -replace=github.com/nsf/termbox-go=github.com/gitlawr/termbox-go@v0.0.0-20201103025537-250e644d56a6
 go mod edit -replace=github.com/rancher/harvester-installer=../
 go get

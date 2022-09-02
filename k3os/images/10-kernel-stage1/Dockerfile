@@ -44,7 +44,7 @@ RUN curl -fL $KERNEL_HEADERS_XZ -o /usr/src/kernel-headers.tar.xz
 ### Extract to /usr/src/root
 RUN mkdir -p /usr/src/root && ls /usr/src
 
-RUN apt-get install -y libarchive-tools
+RUN apt-get --assume-yes -o Acquire::http::proxy="$http_proxy" -o Acquire::https::proxy="$https_proxy" install libarchive-tools
 RUN cd /usr/src/root && \
     bsdtar xvf /usr/src/kernel.tar.xz
     #--ignore-failed-read

@@ -44,7 +44,7 @@ RUN curl -fL $KERNEL_HEADERS_XZ -o /usr/src/kernel-headers.tar.xz
 ### Extract to /usr/src/root
 RUN mkdir -p /usr/src/root && ls /usr/src
 RUN cd /usr/src/root && \
-    tar xvf /usr/src/kernel.tar.xz --exclude='.*'
+    tar xvf /usr/src/kernel.tar.xz --ignore-failed-read
 RUN cd /usr/src/root && \
     tar xvf /usr/src/kernel-extra.tar.xz  --exclude='.*'
 RUN cd /usr/src/root && \

@@ -30,7 +30,7 @@ RUN apt-get --assume-yes -o Acquire::http::proxy="$http_proxy" -o Acquire::https
 
 ARG ARCH
 ENV KVERSION=5.4.0-54-generic
-ENV URL=https://github.com/rancher/platos-kernel/releases/download/5.4.0-54.60-rancher1
+ENV URL=https://github.com/rancher/k3os-kernel/releases/download/5.4.0-54.60-rancher1
 ENV KERNEL_XZ=${URL}/kernel-generic_${ARCH}.tar.xz
 ENV KERNEL_EXTRA_XZ=${URL}/kernel-extra-generic_${ARCH}.tar.xz
 ENV KERNEL_HEADERS_XZ=${URL}/kernel-headers-generic_${ARCH}.tar.xz

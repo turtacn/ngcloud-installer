@@ -15,8 +15,8 @@ copy_all ${DIST} "$@"
 popd
 
 mkdir -p ./build
-ID=$(docker create ${REPO}/k3os-package:${TAG})
-docker cp ${ID}:/output/k3os ./build/
+ID=$(docker create ${REPO}/platos-package:${TAG})
+docker cp ${ID}:/output/platos ./build/
 docker rm -fv $ID
 
 docker build \
@@ -25,11 +25,11 @@ docker build \
   --build-arg TAG=${TAG} \
   --build-arg VERSION=${VERSION} \
   --file package/Dockerfile \
-  --tag ${REPO}/k3os:${TAG} \
-  --tag ${REPO}/k3os:latest \
+  --tag ${REPO}/platos:${TAG} \
+  --tag ${REPO}/platos:latest \
 .
 docker image save --output ./dist/images.tar \
-  ${REPO}/k3os:${TAG} \
-  ${REPO}/k3os:latest
-echo ${REPO}/k3os:${TAG} > ./dist/images.txt
-echo Built ${REPO}/k3os:${TAG}
+  ${REPO}/platos:${TAG} \
+  ${REPO}/platos:latest
+echo ${REPO}/platos:${TAG} > ./dist/images.txt
+echo Built ${REPO}/platos:${TAG}

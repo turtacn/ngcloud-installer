@@ -8,9 +8,9 @@ import (
 	"sync"
 
 	"github.com/jroimartin/gocui"
-	cfg "github.com/rancher/harvester-installer/pkg/config"
-	"github.com/rancher/harvester-installer/pkg/util"
-	"github.com/rancher/harvester-installer/pkg/widgets"
+	cfg "github.com/turtacn/ngcloud-installer/pkg/config"
+	"github.com/turtacn/ngcloud-installer/pkg/util"
+	"github.com/turtacn/ngcloud-installer/pkg/widgets"
 	"github.com/rancher/k3os/pkg/config"
 	"github.com/sirupsen/logrus"
 )

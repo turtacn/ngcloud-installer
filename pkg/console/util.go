@@ -14,7 +14,7 @@ import (
 
 	"github.com/ghodss/yaml"
 	"github.com/jroimartin/gocui"
-	cfg "github.com/rancher/harvester-installer/pkg/config"
+	cfg "github.com/turtacn/ngcloud-installer/pkg/config"
 	"github.com/rancher/k3os/pkg/config"
 	"k8s.io/apimachinery/pkg/util/rand"
 )

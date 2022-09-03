@@ -1,3 +1,3 @@
 FROM alpine
-COPY bin/harvester-installer /usr/bin/
-CMD ["harvester-installer"]
+COPY bin/ngcloud-installer /usr/bin/
+CMD ["ngcloud-installer"]

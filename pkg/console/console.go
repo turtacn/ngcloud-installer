@@ -6,7 +6,7 @@ import (
 	"os"
 
 	"github.com/jroimartin/gocui"
-	"github.com/rancher/harvester-installer/pkg/widgets"
+	"github.com/turtacn/ngcloud-installer/pkg/widgets"
 	"github.com/sirupsen/logrus"
 )
 

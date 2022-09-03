@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/rancher/harvester-installer/pkg/console"
+	"github.com/turtacn/ngcloud-installer/pkg/console"
 )
 
 func main() {

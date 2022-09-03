@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/rancher/harvester-installer/pkg/console"
+	"github.com/turtacn/ngcloud-installer/pkg/console"
 	"github.com/rancher/k3os/pkg/mode"
 	"github.com/sirupsen/logrus"
 	"github.com/urfave/cli"

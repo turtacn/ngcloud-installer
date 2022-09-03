@@ -1,4 +1,4 @@
-module github.com/rancher/harvester-installer
+module github.com/turtacn/ngcloud-installer
 
 go 1.13
 

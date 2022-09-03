@@ -12,9 +12,9 @@ import (
 
 	"github.com/jroimartin/gocui"
 	"github.com/pkg/errors"
-	"github.com/rancher/harvester-installer/pkg/util"
-	"github.com/rancher/harvester-installer/pkg/version"
-	"github.com/rancher/harvester-installer/pkg/widgets"
+	"github.com/turtacn/ngcloud-installer/pkg/util"
+	"github.com/turtacn/ngcloud-installer/pkg/version"
+	"github.com/turtacn/ngcloud-installer/pkg/widgets"
 	"github.com/sirupsen/logrus"
 	"k8s.io/apimachinery/pkg/util/net"
 )

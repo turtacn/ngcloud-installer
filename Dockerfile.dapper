@@ -47,7 +47,7 @@ ENV GOPROXY  "https://mirrors.aliyun.com/goproxy/,direct"
 #ENV GOPROXY  "https://goproxy.cn,direct"
 #ENV GOPROXY  "https://proxy.golang.com.cn,direct"
 ENV DAPPER_ENV REPO TAG DRONE_TAG CROSS
-ENV DAPPER_SOURCE /go/src/github.com/rancher/harvester-installer/
+ENV DAPPER_SOURCE /go/src/github.com/turtacn/ngcloud-installer/
 ENV DAPPER_OUTPUT ./bin ./dist
 ENV DAPPER_DOCKER_SOCKET true
 ENV HOME ${DAPPER_SOURCE}

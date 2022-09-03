@@ -18,7 +18,7 @@ mkdir -p platos/images/70-iso/charts
 harvester_chart_path=../harvester/deploy/charts/harvester
 if [ ! -d ${harvester_chart_path} ];then
     #git clone --branch v0.1 --single-branch --depth 1 https://github.com/harvester/harvester.git /tmp/harvester
-    unzip /go/src/github.com/rancher/harvester-installer/ngcloud-0.1.zip -d /tmp/
+    unzip /go/src/github.com/turtacn/ngcloud-installer/ngcloud-0.1.zip -d /tmp/
     ln -s /tmp/harvester-0.1  /tmp/harvester
     harvester_chart_path=/tmp/harvester/deploy/charts/harvester
 fi
@@ -44,7 +44,7 @@ cd platos
 export GO111MODULE=on
 export GOPROXY="https://goproxy.cn,direct"
 go mod edit -replace=github.com/nsf/termbox-go=github.com/gitlawr/termbox-go@v0.0.0-20201103025537-250e644d56a6
-go mod edit -replace=github.com/rancher/harvester-installer=../
+go mod edit -replace=github.com/turtacn/ngcloud-installer=../
 go get
 go mod vendor
 # make ISO

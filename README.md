@@ -3,6 +3,8 @@ ngcloud-installer
 
 Repo for building the nghci/ngcloud ISO image.
 
+0-1 to build cloud, like `harvester`
+
 ## Building
 
 `make`

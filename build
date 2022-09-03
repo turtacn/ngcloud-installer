@@ -22,6 +22,9 @@ export http_proxy=$p
 export https_proxy=$p
 export HTTP_PROXY=$p
 export HTTPS_PROXY=$p
+
+rm -rf bin/ dist/
+
 make
 
 

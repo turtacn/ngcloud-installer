@@ -1,2 +1,6 @@
 docker ps -a | grep  Exi | cut -d ' ' -f 1 | xargs -n 1  -P 1 docker rm -f
 docker images | grep none | awk '{ print $3 }' | xargs -n 1 -P 1 docker rmi -f
+
+
+# docker builder prune
+# docker system df

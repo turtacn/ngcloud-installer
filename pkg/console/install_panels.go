@@ -181,7 +181,7 @@ func addAskCreatePanel(c *Console) error {
 		if err := c.setContentByName(footerPanel, ""); err != nil {
 			return err
 		}
-		return c.setContentByName(titlePanel, "Choose installation mode")
+		return c.setContentByName(titlePanel, "选择安装模式")//"Choose installation mode")
 	}
 	askCreateV.PostClose = func() error {
 		return c.setContentByName(footerPanel, "<Use ESC to go back to previous section>")

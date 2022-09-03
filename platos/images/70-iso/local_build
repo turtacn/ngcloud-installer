@@ -5,4 +5,4 @@ docker build --build-arg http_proxy=http://192.168.198.1:19666 \
     --build-arg no_proxy= --build-arg TAG=dev \
     --build-arg VERSION=baafeb5-dirty \
     --build-arg REPO=rancher --build-arg ARCH=amd64  \
-    .  -t  rancher/k3os-iso:dev
+    .  -t  rancher/platos-iso:dev

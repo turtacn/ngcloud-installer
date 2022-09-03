@@ -17,6 +17,7 @@ Built ISO image is located in the `dist/artifacts` directory.
 ## DevOps
 
 - package
+    - grub system
     - kernel 
     - kernel modules
     - OS programs

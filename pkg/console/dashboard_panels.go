@@ -27,13 +27,21 @@ const (
 	colorBlue
 
 	logo string = `
+  _________                      _____               _______          _________ .__                   .___
+ /   _____/____    ____    _____/ ____\___________   \      \    ____ \_   ___ \|  |   ____  __ __  __| _/
+ \_____  \\__  \  /    \  / ___\   __\/  _ \_  __ \  /   |   \  / ___\/    \  \/|  |  /  _ \|  |  \/ __ | 
+ /        \/ __ \|   |  \/ /_/  >  | (  <_> )  | \/ /    |    \/ /_/  >     \___|  |_(  <_> )  |  / /_/ | 
+/_______  (____  /___|  /\___  /|__|  \____/|__|    \____|__  /\___  / \______  /____/\____/|____/\____ | 
+        \/     \/     \//_____/                             \//_____/         \/                       \/ 
+`
+/*	logo string = `
 ██╗░░██╗░█████╗░██████╗░██╗░░░██╗███████╗░██████╗████████╗███████╗██████╗░
 ██║░░██║██╔══██╗██╔══██╗██║░░░██║██╔════╝██╔════╝╚══██╔══╝██╔════╝██╔══██╗
 ███████║███████║█████╔╝╚██╗░░██╔╝█████╗░░╚█████╗░░░░██║░░░█████╗░░██████╔╝
 ██╔══██║██╔══██║██╔══██╗░╚████╔╝░██╔══╝░░░╚═══██╗░░░██║░░░██╔══╝░░██╔══██╗
 ██║░░██║██║░░██║██║░░██║░░╚██╔╝░░███████╗██████╔╝░░░██║░░░███████╗██║░░██║
 ╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░╚══════╝╚═════╝░░░░╚═╝░░░╚══════╝╚═╝░░╚═╝`
-)
+*/)
 
 type state struct {
 	installed    bool
@@ -63,9 +71,9 @@ func (c *Console) layoutDashboard(g *gocui.Gui) error {
 		v.Frame = false
 		v.Wrap = true
 		if current.harvesterURL == "" {
-			fmt.Fprint(v, "Harvester management URL: \n\nUnavailable")
+			fmt.Fprint(v, "NgCloud Management URL: \n\nUnavailable")
 		} else {
-			fmt.Fprintf(v, "Harvester management URL: \n\n%s", current.harvesterURL)
+			fmt.Fprintf(v, "NgCloud Management URL: \n\n%s", current.harvesterURL)
 		}
 	}
 	if v, err := g.SetView("status", maxX/2-40, 14, maxX/2+40, 18); err != nil {
@@ -82,7 +90,7 @@ func (c *Console) layoutDashboard(g *gocui.Gui) error {
 			return err
 		}
 		v.Frame = false
-		fmt.Fprintf(v, "<Use F12 to switch between Harvester console and Shell>")
+		fmt.Fprintf(v, "<Use F12 to switch between NgCloud Console and Shell>")
 	}
 	if err := logoPanel(g); err != nil {
 		return err

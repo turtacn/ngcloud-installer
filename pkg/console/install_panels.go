@@ -165,10 +165,10 @@ func addAskCreatePanel(c *Console) error {
 		return []widgets.Option{
 			{
 				Value: modeCreate,
-				Text:  "Create a new Harvester cluster",
+				Text:  "Create a new NgCloud cluster",
 			}, {
 				Value: modeJoin,
-				Text:  "Join an existing harvester cluster",
+				Text:  "Join an existing NgCloud cluster",
 			},
 		}, nil
 	}
@@ -181,7 +181,7 @@ func addAskCreatePanel(c *Console) error {
 		if err := c.setContentByName(footerPanel, ""); err != nil {
 			return err
 		}
-		return c.setContentByName(titlePanel, "选择安装模式")//"Choose installation mode")
+		return c.setContentByName(titlePanel, "Choose installation mode")
 	}
 	askCreateV.PostClose = func() error {
 		return c.setContentByName(footerPanel, "<Use ESC to go back to previous section>")
@@ -533,7 +533,7 @@ func addCloudInitPanel(c *Console) error {
 			logrus.Debug("cfm cfg: ", fmt.Sprintf("%+v", cfg.Config.K3OS.Install))
 			if cfg.Config.K3OS.Install != nil && !cfg.Config.K3OS.Install.Silent {
 				confirmV.SetContent(options +
-					"\nYour disk will be formatted and Harvester will be installed with \nthe above configuration. Continue?\n")
+					"\nYour disk will be formatted and NgCloud will be installed with \nthe above configuration. Continue?\n")
 			}
 			g.Cursor = false
 			return showNext(c, confirmPanel)
@@ -598,7 +598,7 @@ func addInstallPanel(c *Console) error {
 		go doInstall(c.Gui)
 		return c.setContentByName(footerPanel, "")
 	}
-	installV.Title = " Installing Harvester "
+	installV.Title = " Installing NgCloud "
 	installV.SetLocation(maxX/8, maxY/8, maxX/8*7, maxY/8*7)
 	c.AddElement(installPanel, installV)
 	installV.Frame = true

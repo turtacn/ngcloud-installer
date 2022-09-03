@@ -14,7 +14,7 @@ LONGHORN_IMAGE_URL=https://raw.githubusercontent.com/longhorn/longhorn/${LONGHOR
 OFFLINE_BUILD="1"
 
 # Prepare Harvester chart
-mkdir -p k3os/images/70-iso/charts
+mkdir -p platos/images/70-iso/charts
 harvester_chart_path=../harvester/deploy/charts/harvester
 if [ ! -d ${harvester_chart_path} ];then
     #git clone --branch v0.1 --single-branch --depth 1 https://github.com/harvester/harvester.git /tmp/harvester
@@ -22,14 +22,14 @@ if [ ! -d ${harvester_chart_path} ];then
     ln -s /tmp/harvester-0.1  /tmp/harvester
     harvester_chart_path=/tmp/harvester/deploy/charts/harvester
 fi
-helm package ${harvester_chart_path} -d k3os/images/70-iso/charts
+helm package ${harvester_chart_path} -d platos/images/70-iso/charts
 
 # Offline docker images
 image_list_file='scripts/image-list.txt'
 ###aliyun##curl ${K3S_IMAGE_URL}>>${image_list_file}
 ###aliyun##curl ${LONGHORN_IMAGE_URL}>>${image_list_file}
 
-output_image_tar_file="k3os/images/70-iso/harvester-images.tar"
+output_image_tar_file="platos/images/70-iso/harvester-images.tar"
 if [ -n "${OFFLINE_BUILD}" ] && [ ! -f $output_image_tar_file.zst ]; then
   images=$(cat "${image_list_file}")
   xargs -n1 docker pull <<< "${images}"
@@ -38,8 +38,8 @@ if [ -n "${OFFLINE_BUILD}" ] && [ ! -f $output_image_tar_file.zst ]; then
   zstd --rm ${output_image_tar_file} -o ${output_image_tar_file}.zst
 fi
 
-# Remaster k3os
-cd k3os
+# Remaster platos
+cd platos
 # Update vendors
 export GO111MODULE=on
 export GOPROXY="https://goproxy.cn,direct"
@@ -52,4 +52,4 @@ cd scripts
 ./default
 mkdir -p ../../dist/artifacts
 mv ../dist/artifacts/* ../../dist/artifacts
-for file in `find ../../dist/artifacts -type f -name '*.iso'`; do mv "$file" "${file/k3os/harvester}"; done
+for file in `find ../../dist/artifacts -type f -name '*.iso'`; do mv "$file" "${file/platos/harvester}"; done

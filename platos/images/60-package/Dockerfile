@@ -1,15 +1,15 @@
 ARG REPO
 ARG TAG
-FROM ${REPO}/k3os-kernel:${TAG} as kernel
+FROM ${REPO}/platos-kernel:${TAG} as kernel
 
 ARG REPO
 ARG TAG
-FROM ${REPO}/k3os-package:${TAG}
+FROM ${REPO}/platos-package:${TAG}
 ARG VERSION
 
-COPY --from=kernel /output/ /output/k3os/system/kernel/
+COPY --from=kernel /output/ /output/platos/system/kernel/
 
-WORKDIR /output/k3os/system/kernel
+WORKDIR /output/platos/system/kernel
 RUN mkdir -vp $(cat version)
 RUN ln -sf $(cat version) current
 RUN mv -vf initrd kernel.squashfs current/

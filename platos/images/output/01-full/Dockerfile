@@ -1,18 +1,18 @@
 ARG REPO
 ARG TAG
-FROM ${REPO}/k3os-tar:${TAG} as tar
+FROM ${REPO}/platos-tar:${TAG} as tar
 
 ARG REPO
 ARG TAG
-FROM ${REPO}/k3os-iso:${TAG} as iso
+FROM ${REPO}/platos-iso:${TAG} as iso
 
 ARG REPO
 ARG TAG
-FROM ${REPO}/k3os-kernel:${TAG} as kernel
+FROM ${REPO}/platos-kernel:${TAG} as kernel
 
 ARG REPO
 ARG TAG
-FROM ${REPO}/k3os-base:${TAG}
+FROM ${REPO}/platos-base:${TAG}
 ARG ARCH
 
-COPY --from=iso /output/k3os.iso /output/k3os-${ARCH}.iso
+COPY --from=iso /output/platos.iso /output/platos-${ARCH}.iso

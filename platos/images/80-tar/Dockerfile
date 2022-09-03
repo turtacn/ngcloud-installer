@@ -1,10 +1,10 @@
 ARG REPO
 ARG TAG
-FROM ${REPO}/k3os-package:${TAG} as package
+FROM ${REPO}/platos-package:${TAG} as package
 
 ARG REPO
 ARG TAG
-FROM ${REPO}/k3os-base:${TAG} as base
+FROM ${REPO}/platos-base:${TAG} as base
 ARG VERSION
 
 COPY --from=package /output/   /usr/src/${VERSION}/

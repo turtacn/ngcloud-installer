@@ -1,6 +1,6 @@
 ARG REPO
 ARG TAG
-FROM ${REPO}/k3os-base:${TAG}
+FROM ${REPO}/platos-base:${TAG}
 
 ARG ARCH
 ENV ARCH ${ARCH}

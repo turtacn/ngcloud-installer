@@ -44,6 +44,9 @@ In `build` script, there are ways to change proxy settings.
 
 ## Demo
 
+### Procedure
+![01](./asset/5.gif)
+
 ### Usage 
 
 ![01](./asset/1.jpeg)

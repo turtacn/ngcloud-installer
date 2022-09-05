@@ -44,7 +44,7 @@ RUN --mount=type=bind,source=/,target=/ctx cp /ctx/harvester-images.tar.zst \
     /usr/src/iso/var/lib/rancher/k3s/agent/images &>/dev/null || true
 
 RUN mkdir -p /output && \
-    grub-mkrescue -o /output/k3os.iso /usr/src/iso/. -- -volid K3OS -joliet on && \
+    grub-mkrescue -o /output/platos.iso /usr/src/iso/. -- -volid K3OS -joliet on && \
     [ -e /output/k3os.iso ] # grub-mkrescue doesn't exit non-zero on failure
 
 CMD ["run-kvm.sh"]

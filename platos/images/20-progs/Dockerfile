@@ -13,11 +13,11 @@ RUN gobuild -o /output/metadata
 
 FROM gobuild as platos
 ARG VERSION
-# COPY /cmd/ $GOPATH/src/github.com/rancher/platos/cmd/
-COPY /pkg/ $GOPATH/src/github.com/rancher/platos/pkg/
-COPY /main.go $GOPATH/src/github.com/rancher/platos/
-COPY /vendor/ $GOPATH/src/github.com/rancher/platos/vendor/
-WORKDIR $GOPATH/src/github.com/rancher/platos
+COPY /cmd/ $GOPATH/src/github.com/rancher/k3os/cmd/
+COPY /pkg/ $GOPATH/src/github.com/rancher/k3os/pkg/
+COPY /main.go $GOPATH/src/github.com/rancher/k3os/
+COPY /vendor/ $GOPATH/src/github.com/rancher/k3os/vendor/
+WORKDIR $GOPATH/src/github.com/rancher/k3os
 RUN gobuild -o /output/platos
 
 FROM gobuild

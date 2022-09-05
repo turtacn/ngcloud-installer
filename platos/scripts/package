@@ -16,7 +16,7 @@ popd
 
 mkdir -p ./build
 ID=$(docker create ${REPO}/platos-package:${TAG})
-docker cp ${ID}:/output/platos ./build/
+docker cp ${ID}:/output/k3os ./build/
 docker rm -fv $ID
 
 docker build \

@@ -47,16 +47,16 @@ Built ISO image is located in the `dist/artifacts` directory.
 
 ### Usage 
 
-![01](asset/1.jpeg)
+![01](./asset/1.jpeg)
 
-![01](asset/2.jpeg)
+![01](./asset/2.jpeg)
 
-![01](asset/3.png)
+![01](./asset/3.png)
 
-![01](asset/3.jpeg)
+![01](./asset/3.jpeg)
 
 ### Container Images
 
-![01](asset/4.png)
+![01](./asset/4.png)
 
 

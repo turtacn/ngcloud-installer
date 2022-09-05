@@ -13,7 +13,7 @@ Built ISO image is located in the `dist/artifacts` directory.
 ./build
 ```
 
-You can change proxy par
+In `build` script, there are ways to change proxy settings.
 
 ## DevOps
 

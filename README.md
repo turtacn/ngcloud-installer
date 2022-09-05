@@ -7,14 +7,13 @@ Repo for building the nghci/ngcloud ISO image.
 
 ## Building
 
-`make`
-
 Built ISO image is located in the `dist/artifacts` directory.
-
 
 ```shell script
 ./build
 ```
+
+You can change proxy par
 
 ## DevOps
 

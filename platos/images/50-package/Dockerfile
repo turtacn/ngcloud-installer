@@ -1,6 +1,6 @@
 ARG REPO
 ARG TAG
-FROM ${REPO}/platos-k3s:${TAG} as k3s
+FROM ${REPO}/platos-k8s:${TAG} as k3s
 
 ARG REPO
 ARG TAG

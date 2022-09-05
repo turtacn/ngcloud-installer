@@ -18,7 +18,7 @@ COPY /pkg/ $GOPATH/src/github.com/rancher/k3os/pkg/
 COPY /main.go $GOPATH/src/github.com/rancher/k3os/
 COPY /vendor/ $GOPATH/src/github.com/rancher/k3os/vendor/
 WORKDIR $GOPATH/src/github.com/rancher/k3os
-RUN gobuild -o /output/platos
+RUN gobuild -o /output/k3os
 
 FROM gobuild
 COPY --from=linuxkit /output/ /output/

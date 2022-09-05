@@ -22,12 +22,12 @@ RUN mkdir -p /output && \
 RUN cp /usr/src/kernel/version /output/ && \
     cp /usr/src/kernel/vmlinuz /output/
 
-COPY --from=bin /output/ /usr/src/platos/
+COPY --from=bin /output/ /usr/src/k3os/
 RUN cd /usr/src/initrd && \
-    mkdir -p platos/system/platos/${TAG} && \
-    cp /usr/src/platos/platos platos/system/platos/${TAG} && \
-    ln -s ${TAG} platos/system/platos/current && \
-    ln -s /platos/system/platos/current/platos init
+    mkdir -p k3os/system/k3os/${TAG} && \
+    cp /usr/src/k3os/k3os k3os/system/k3os/${TAG} && \
+    ln -s ${TAG} k3os/system/k3os/current && \
+    ln -s /k3os/system/k3os/current/k3os init
     
 RUN cd /usr/src/initrd && \
     find . | cpio -H newc -o | gzip -c -1 > /output/initrd

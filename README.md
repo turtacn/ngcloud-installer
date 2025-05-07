@@ -57,8 +57,6 @@ In `build` script, there are ways to change proxy settings.
 
 ![01](./asset/3.jpeg)
 
-### Container Images
 
-![01](./asset/4.png)
 
 
